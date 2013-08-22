@@ -109,12 +109,46 @@ LANGUAGES = (
     ('en', gettext("English")),
     ('it', gettext("Italiano")),
 )
+
+
+CMS_LANGUAGES = {
+    1: [
+        {
+            'code': 'pt',
+            'name': gettext('Portugues'),
+            'fallbacks': ['it', 'en'],
+            'public': True,
+        },
+        {
+            'code': 'en',
+            'name': gettext('English'),
+            'fallbacks': ['de', 'fr'],
+            'public': True,
+            'hide_untranslated': True,
+            'redirect_on_fallback':False,
+        },
+
+        {
+            'code': 'it',
+            'name': gettext('Italiano'),
+            'public': False,
+        },
+    ],
+
+    'default': {
+        'fallbacks': ['pt', 'it', 'en'],
+        'redirect_on_fallback':True,
+        'public': False,
+        'hide_untranslated': False,
+    }
+}
+
 LANGUAGE_COOKIE_NAME = 'django_language'
 LANGUAGE_CODE = 'pt'
 LOCALE = 'pt'
 MODELTRANSLATION_DEFAULT_LANGUAGE = 'pt'
 URLI18N_INCLUDE_PATHS = ['/', '/admin', '^/admin[-\w/]+/$']
-URLI18N_ALWAYS_SHOW_LANGUAGE = False
+URLI18N_ALWAYS_SHOW_LANGUAGE = True
 DEFAULT_LANGUAGE = 0
 
 CMS_PLACEHOLDER_CONF = {
@@ -164,4 +198,49 @@ try:
 except ImportError:
     pass
 
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': True,
+    'formatters': {
+        'verbose': {
+            'format': '%(levelname)s %(asctime)s %(module)s %(process)d %(thread)d %(message)s'
+        },
+        'simple': {
+            'format': '%(levelname)s %(message)s'
+        },
+    },
+    'handlers': {
+        'null': {
+            'level': 'DEBUG',
+            'class': 'django.utils.log.NullHandler',
+        },
+        'console':{
+            'level': 'DEBUG',
+            'class': 'logging.StreamHandler',
+            'formatter': 'simple'
+        },
 
+        'mail_admins': {
+            'level': 'ERROR',
+            'filters': ['require_debug_false'],
+            'class': 'django.utils.log.AdminEmailHandler',
+        }
+    },
+    'filters': {
+        'require_debug_false': {
+            '()': 'django.utils.log.RequireDebugFalse'
+            }
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['console'],
+            'propagate': True,
+            'level': 'INFO',
+        },
+        'django.request': {
+            'handlers': ['mail_admins'],
+            'level': 'ERROR',
+            'propagate': True,
+        },
+    }
+}
