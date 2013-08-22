@@ -1,0 +1,100 @@
+{% extends "ventus/cms_page.html" %}
+{% load cms_tags menu_tags sekizai_tags %}
+
+{% block logo %}
+    {% placeholder logo inherit or %}
+        <img src="{{ STATIC_URL }}ventus/images/logo.png" style=" height: 50px;" alt="">
+    {% endplaceholder %}
+{% endblock logo %}
+{% block slider %}
+
+        {% placeholder slider or %}
+
+            <div class="slider-area">
+                <ul class="slides">
+
+                    <li>
+                        <!-- empty slide -->
+                    </li>
+
+                </ul>
+            </div>
+
+        {% endplaceholder %}
+    
+{% endblock slider %}
+
+{% block bubble %}
+    {% placeholder bubble inherit or %}
+        <h4 class="left">DO YOU <span class="bold italic">LIKE</span> WHAT YOU SEE?</h4>
+        <a class="btn btn-padded right" href="#">CONTACT US</a>
+    {% endplaceholder %}
+{% endblock bubble %}
+
+{% block breadcrumb %}
+    <ul class="breadcrumb">
+        {% show_breadcrumb %}
+    </ul>
+{% endblock breadcrumb %}
+
+{% block cms_container %}
+    <div class="container" style="margin-top: 42px">
+        <div class="row">
+            {% placeholder "First Row" %}
+        </div>
+        <div class="row">
+            {% placeholder "Second Row" %}
+        </div>
+        <div class="row">
+            {% placeholder "Third Row" %}
+        </div>
+        <div class="row">
+            {% placeholder "Fourth Row" %}
+        </div>
+        <div class="row">
+            {% placeholder "Fifth Row" %}
+        </div>
+        <div class="row">
+            {% placeholder "Sixth Row" %}
+        </div>
+    </div>
+{% endblock cms_container %}
+{% block footer-bubble %}
+    {% placeholder footer-bubble inherit or %}
+        <h4 class="left">GET IN TOUCH <span class="bold italic">NOW</span></h4>
+        <a class="btn btn-padded right">CONTACT US</a>
+    {% endplaceholder %}
+{% endblock footer-bubble %}
+{% block sub-footer %}
+    <div class="row">
+
+        <div class="span6">
+            {% placeholder footer-left inherit %}
+        </div>
+
+        <div class="span6">
+            {% placeholder footer-right inherit %}
+        </div>
+
+    </div>
+{% endblock sub-footer %}
+{% block footer %}
+    <div class="row">
+        <div class="span6">
+            {% placeholder copyright inherit %}
+        </div>
+
+        <div class="span6">
+            {% placeholder social-icons inherit or %}
+                <ul class="social-icons">
+                    <li class="twitter"><a rel="alternate" data-original-title="Twitter"></a></li>
+                    <li class="facebook"><a rel="alternate" data-original-title="Facebook"></a></li>
+                    <li class="vimeo"><a rel="alternate" data-original-title="Vimeo"></a></li>
+                    <li class="dribbble"><a rel="alternate" data-original-title="Dribbble"></a></li>
+                    <li class="google"><a rel="alternate" data-original-title="Google +"></a></li>
+                    <li class="pinterest"><a rel="alternate" data-original-title="Pinterest"></a></li>
+                </ul>
+            {% endplaceholder %}
+        </div>
+    </div>
+{% endblock footer %}

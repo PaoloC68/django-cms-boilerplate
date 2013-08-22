@@ -1,0 +1,45 @@
+{% load cms_tags sekizai_tags %}
+{% addtoblock "css" %}
+    <!-- Google Fonts
+    ================================================== -->
+    <link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+
+    <!-- Le Styles
+    ================================================== -->
+    <!-- These are the awesome CSS files -->
+    <link href="{{ STATIC_URL }}ventus/css/bootstrap.css" rel="stylesheet">
+    <link href="{{ STATIC_URL }}ventus/css/flexslider.css" rel="stylesheet">
+    <link href="{{ STATIC_URL }}ventus/css/style.css" rel="stylesheet">
+    <link href="{{ STATIC_URL }}ventus/css/responsive.css" rel="stylesheet">
+    <link href="{{ STATIC_URL }}ventus/css/style_switcher.css" rel="stylesheet">
+    <link href="{{ STATIC_URL }}ventus/css/dropkick.css" rel="stylesheet">
+    <link href="{{ STATIC_URL }}ventus/css/jquery.fancybox.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ STATIC_URL }}ventus/css/colours/green.css" type="text/css">
+
+{% endaddtoblock %}
+
+
+{% addtoblock "extra-head" %}
+    <!-- Fav and touch icons
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{ STATIC_URL }}ventus/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{ STATIC_URL }}ventus/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{ STATIC_URL }}ventus/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="{{ STATIC_URL }}ventus/ico/apple-touch-icon-57-precomposed.png">
+    <link rel="shortcut icon" href="{{ STATIC_URL }}ventus/ico/favicon.png"> -->
+{% endaddtoblock %}
+
+{% addtoblock "js" %}
+<!-- Le javascript
+
+   ================================================== -->
+    <script src="{{ STATIC_URL }}ventus/js/jquery.js"></script>
+    <script src="{{ STATIC_URL }}ventus/js/bootstrap.js"></script>
+    <script src="{{ STATIC_URL }}ventus/js/tinynav.js"></script>
+    <script src="{{ STATIC_URL }}ventus/js/scroll.js"></script>
+    <script src="{{ STATIC_URL }}ventus/js/jquery.flexslider-min.js"></script>
+    <script src="{{ STATIC_URL }}ventus/js/custom.js"></script>
+    <script src="{{ STATIC_URL }}ventus/js/style_switcher.js"></script>
+    <script src="{{ STATIC_URL }}ventus/js/jquery.fancybox.js"></script>
+{% endaddtoblock %}
+

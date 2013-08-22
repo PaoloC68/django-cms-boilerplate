@@ -1,0 +1,30 @@
+{% extends "ventus/main.html" %}
+{% load cms_tags menu_tags sekizai_tags %}
+
+{% block afterbody %}
+    {% if user.is_authenticated %}
+        {% cms_toolbar %}
+    {% endif %}
+{% endblock afterbody %}
+
+{% block header %}
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container">
+                <a class="brand" href="/">
+                    {% block logo %}
+                    {% endblock logo %}
+                </a>
+                <ul class="nav">
+                    {% show_menu 0 100 100 100 %}
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endblock header %}
+
+{% block container %}
+
+    {% block cms_container %}{% endblock %}
+
+{% endblock %}

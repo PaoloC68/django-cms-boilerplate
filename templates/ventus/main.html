@@ -1,0 +1,98 @@
+{% load sekizai_tags %}
+{% include "ventus/base_inc.html" %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Plumbers</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    {% render_block 'css' %}
+
+    {% render_block "top-js" %}
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+		  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+
+</head>
+<body>
+{% block afterbody %}
+{% endblock afterbody %}
+
+{% block header %}
+{% endblock header %}
+<div class="slider">
+    <div class="container">
+        <div class="row">
+            <div class="span12">
+
+                        {% block slider %}
+                        {% endblock slider %}
+                <div class="slider-space"></div>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="span12 relative">
+
+            <div class="bubble">
+                {% block bubble %}
+                {% endblock bubble %}
+            </div>
+            <div class="bubble-triangle"></div>
+        </div>
+    </div>
+</div>
+<div class="bubble-stripes"></div>
+<div class="container">
+    <div class="row">
+        <div class="span12">
+            <div class="breadcrumb-container">
+                {% block breadcrumb %}
+                {% endblock breadcrumb %}
+            </div>
+        </div>
+    </div>
+</div>
+<div class="content">
+
+    {% block container %}
+    {% endblock container %}
+
+</div>
+<div class="container">
+    <div class="row">
+        <div class="span12">
+            <div class="footer-bubble">
+                <div class="bubble">
+                    {% block footer-bubble %}
+                    {% endblock footer-bubble %}
+                </div>
+                <div class="bubble-triangle"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="sub-footer">
+    <div class="container">
+        {% block sub-footer %}
+        {% endblock sub-footer %}
+    </div>
+</div>
+<div class="footer">
+    <div class="container">
+        {% block footer %}
+        {% endblock footer %}
+    </div>
+    <a rel="alternate" class="up" data-original-title="Back to top"><img src="{{ STATIC_URL }}ventus/img/icon_up.png"                                                                         alt=""></a>
+</div>
+{% render_block 'js' %}
+</body>
+</html>

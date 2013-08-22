@@ -1,0 +1,87 @@
+{% extends "ventus/cms_page.html" %}
+{% load cms_tags menu_tags sekizai_tags %}
+
+{% block logo %}
+    {% placeholder logo inherit or %}
+        <img src="{{ STATIC_URL }}ventus/images/logo.png" style=" height: 50px;" alt="">
+    {% endplaceholder %}
+{% endblock logo %}
+{% block slider %}
+ <ul class="slides">
+    {% placeholder slider inherit or %}
+
+            <li>
+                <div class="row">
+                    <div class="span12">
+
+                        <!-- slide #1 content -->
+                        <div class="vcenter" style="margin-top: 11px;">
+                            <h3 class="slider-heading"><span class="slider-highlight">LATEST WORK:</span> PROJECT TITLE
+                            </h3>
+                        </div>
+
+                    </div>
+                </div>
+            </li>
+
+    {% endplaceholder %}
+</ul>
+{% endblock slider %}
+
+{% block bubble %}
+    {% placeholder bubble inherit or %}
+        <h4 class="left">DO YOU <span class="bold italic">LIKE</span> WHAT YOU SEE?</h4>
+        <a class="btn btn-padded right" href="#">CONTACT US</a>
+    {% endplaceholder %}
+{% endblock bubble %}
+
+{% block breadcrumb %}
+        <ul class="breadcrumb">
+        {% show_breadcrumb %}
+        </ul>
+{% endblock breadcrumb %}
+
+{% block cms_container %}
+
+            {% placeholder standard_page_container %}
+
+{% endblock cms_container %}
+{% block footer-bubble %}
+    {% placeholder footer-bubble inherit or %}
+    <h4 class="left">GET IN TOUCH <span class="bold italic">NOW</span></h4>
+    <a class="btn btn-padded right">CONTACT US</a>
+    {% endplaceholder %}
+{% endblock footer-bubble %}
+{% block sub-footer %}
+    <div class="row">
+
+        <div class="span6">
+            {% placeholder footer-left inherit %}
+        </div>
+
+        <div class="span6">
+            {% placeholder footer-right inherit %}
+        </div>
+
+    </div>
+{% endblock sub-footer %}
+{% block footer %}
+    <div class="row">
+        <div class="span6">
+            {% placeholder copyright inherit %}
+        </div>
+
+        <div class="span6">
+            {% placeholder social-icons inherit or%}
+            <ul class="social-icons">
+                <li class="twitter"><a rel="alternate" data-original-title="Twitter"></a></li>
+                <li class="facebook"><a rel="alternate" data-original-title="Facebook"></a></li>
+                <li class="vimeo"><a rel="alternate" data-original-title="Vimeo"></a></li>
+                <li class="dribbble"><a rel="alternate" data-original-title="Dribbble"></a></li>
+                <li class="google"><a rel="alternate" data-original-title="Google +"></a></li>
+                <li class="pinterest"><a rel="alternate" data-original-title="Pinterest"></a></li>
+            </ul>
+            {% endplaceholder %}
+        </div>
+    </div>
+{% endblock footer %}

@@ -1,11 +1,12 @@
 # -*- coding: utf-8 -*-
 import os
+import dj_database_url
 
 gettext = lambda s: s
 
 PROJECT_DIR = os.path.abspath(os.path.dirname(__file__))
 
-DEBUG = False
+DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
@@ -14,12 +15,7 @@ ADMINS = (
 
 MANAGERS = ADMINS
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(PROJECT_DIR, 'mycms.db'),
-    }
-}
+DATABASES = {'default': dj_database_url.config(default='postgres://postgres:@localhost:5432/brcms')}
 
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
@@ -28,11 +24,10 @@ DATABASES = {
 # timezone as the operating system.
 # If running in a Windows environment this must be set to the same as your
 # system time zone.
-TIME_ZONE = ''
+TIME_ZONE = 'America/Chicago'
 
 # Language code for this installation. All choices can be found here:
 # http://www.i18nguy.com/unicode/language-identifiers.html
-LANGUAGE_CODE = ''
 
 SITE_ID = 1
 
@@ -46,9 +41,9 @@ USE_L10N = True
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/home/media/media.lawrence.com/"
-MEDIA_ROOT = ''
+MEDIA_ROOT = os.path.join(PROJECT_DIR, 'media')
 
-STATIC_ROOT = 'static/'
+STATIC_ROOT = os.path.join(PROJECT_DIR, 'static')
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash if there is a path component (optional in other cases).
@@ -57,6 +52,12 @@ MEDIA_URL = '/media/'
 
 STATIC_URL = '/static/'
 
+STATICFILES_DIRS = (
+    os.path.join(PROJECT_DIR, 'additional_static'),
+    # Put strings here, like "/home/html/static" or "C:/www/django/static".
+    # Always use forward slashes, even on Windows.
+    # Don't forget to use absolute paths, not relative paths.
+)
 
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = '0r6%7gip5tmez*vygfv+u14h@4lbt^8e2^26o#5_f_#b7%cm)u'
@@ -97,13 +98,23 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 
 CMS_TEMPLATES = (
     ('sample.html', 'Sample Template'),
+    ('ventus/simple.html', 'Ventus Simple'),
+    ('ventus/standard.html', 'Ventus Standard Page'),
+    ('ventus/homepage.html', 'Ventus HomePage'),
 )
-
 # i18n and l10n
 CMS_HIDE_UNTRANSLATED = True
 LANGUAGES = (
-    ('en', gettext('English')),
+    ('pt', gettext("Portugues")),
+    ('en', gettext("English")),
+    ('it', gettext("Italiano")),
 )
+LANGUAGE_COOKIE_NAME = 'django_language'
+LANGUAGE_CODE = 'pt'
+LOCALE = 'pt'
+MODELTRANSLATION_DEFAULT_LANGUAGE = 'pt'
+URLI18N_INCLUDE_PATHS = ['/', '/admin', '^/admin[-\w/]+/$']
+URLI18N_ALWAYS_SHOW_LANGUAGE = False
 DEFAULT_LANGUAGE = 0
 
 CMS_PLACEHOLDER_CONF = {
@@ -141,6 +152,7 @@ INSTALLED_APPS = (
     'cms.plugins.file',
     'cms.plugins.snippet',
     'cms.plugins.googlemap',
+    'cmsplugin_contact',
     'sekizai',
     'django_extensions',
 )
