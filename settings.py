@@ -158,7 +158,6 @@ INSTALLED_APPS = (
 )
 
 
-LOGFILE = os.path.join(PROJECT_DIR, "logfile.log")
 
 try:
     from local_settings import *
@@ -186,14 +185,7 @@ LOGGING = {
             'class': 'logging.StreamHandler',
             'formatter': 'simple'
         },
-        'logfile': {
-            'level':'DEBUG',
-            'class':'logging.handlers.RotatingFileHandler',
-            'filename': LOGFILE,
-            'maxBytes': 50000,
-            'backupCount': 2,
-            'formatter': 'verbose',
-        },
+
         'mail_admins': {
             'level': 'ERROR',
             'filters': ['require_debug_false'],
@@ -207,7 +199,7 @@ LOGGING = {
     },
     'loggers': {
         'django': {
-            'handlers': ['logfile'],
+            'handlers': ['console'],
             'propagate': True,
             'level': 'INFO',
         },
