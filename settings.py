@@ -118,25 +118,30 @@ CMS_LANGUAGES = {
             'name': gettext('Portugues'),
             'fallbacks': ['it', 'en'],
             'public': True,
+            'hide_untranslated': False,
+            'redirect_on_fallback':True,
         },
         {
             'code': 'en',
             'name': gettext('English'),
             'fallbacks': ['de', 'fr'],
             'public': True,
-            'hide_untranslated': True,
-            'redirect_on_fallback':False,
+            'hide_untranslated': False,
+            'redirect_on_fallback':True,
         },
 
         {
             'code': 'it',
             'name': gettext('Italiano'),
-            'public': False,
+            'public': True,
+            'hide_untranslated': False,
+            'redirect_on_fallback':True,
         },
     ],
 
+
     'default': {
-        'fallbacks': ['pt', 'it', 'en'],
+        'fallbacks': ['pt', 'en'],
         'redirect_on_fallback':True,
         'public': False,
         'hide_untranslated': False,
@@ -144,12 +149,12 @@ CMS_LANGUAGES = {
 }
 
 LANGUAGE_COOKIE_NAME = 'django_language'
-LANGUAGE_CODE = 'pt'
-LOCALE = 'pt'
-MODELTRANSLATION_DEFAULT_LANGUAGE = 'pt'
+LANGUAGE_CODE = 'it'
+LOCALE = 'it'
+MODELTRANSLATION_DEFAULT_LANGUAGE = 'it'
 URLI18N_INCLUDE_PATHS = ['/', '/admin', '^/admin[-\w/]+/$']
 URLI18N_ALWAYS_SHOW_LANGUAGE = True
-DEFAULT_LANGUAGE = 0
+DEFAULT_LANGUAGE = 2
 
 CMS_PLACEHOLDER_CONF = {
     'new-image': {
